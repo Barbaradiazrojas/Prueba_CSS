@@ -1,0 +1,170 @@
+/* Estilos generales */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #d0c7bd;
+  color: #563156;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+header img {
+  width: 70px;
+  height: 70px;
+}
+
+/* Menú lateral */
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  position: fixed;
+  top: 80px; /* Espacio para el header */
+  left: 0;
+  height: calc(100% - 80px); /* Ajusta el menú para no solaparse con el header */
+  background-color: #d0c7bd;
+  padding-top: 20px;
+}
+
+.menu nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.menu nav a {
+  color: #563156;
+  padding: 15px 0;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.menu nav a:hover {
+  background-color: #a89d93;
+}
+
+/* Contenido principal */
+main {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 10px;
+  padding: 100px 20px 20px 220px; /* Ajusta para espacio del header y nav */
+  background-color: #f0f4f5;
+  flex-grow: 1;
+}
+
+/* Asides izquierdos */
+.aside-left {
+  background-color: #f7b0b0;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Galería de imágenes */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+/* Section principal */
+section {
+  background-color: #f2e6a2;
+  padding: 20px;
+  grid-column: span 3;
+  text-align: center;
+}
+
+/* Aside inferior */
+.aside-bottom {
+  background-color: #add8e6;
+  padding: 20px;
+  text-align: center;
+  grid-column: span 3; /* Hace que el aside inferior ocupe todo el ancho */
+}
+
+/* Footer */
+.footer {
+  background-color: #cccccc;
+  color: #563156;
+  text-align: center;
+  padding: 15px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .menu {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    position: static;
+  }
+  
+  .menu nav {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .menu nav a {
+    padding: 10px;
+  }
+  
+  main {
+    padding: 20px;
+    margin-left: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    grid-column: 1;
+  }
+}
+
